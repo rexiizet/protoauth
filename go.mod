@@ -1,3 +1,3 @@
-module github.com/autm0d3us/protobufcontracts
+module 4203941-dp93067.twc1.net/backend/protobufcontracts
 
 go 1.23.4
