@@ -7,6 +7,7 @@ option go_package = "autm0d3us.gRPCAuth.v1;gRPCAuthv1";
 service Auth {
   rpc Register (RegisterRequest) returns (RegisterResponse);
   rpc Login (LoginRequest) returns (LoginResponse);
+  rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
 }
 
 message RegisterRequest {
@@ -38,4 +39,12 @@ message LoginResponse {
   string phone = 4;     // Phone of the logged in user.
   string email = 5;     // Email of the logged in user.
   int64 balance = 6;      // Balance of the logged in user.
+}
+
+message ValidateTokenRequest {
+  string token = 1;     // JWT token of the user for auth in system.
+}
+
+message ValidateTokenResponse {
+  int64 user_id = 1;      // ID of the user to auth in system.
 }
