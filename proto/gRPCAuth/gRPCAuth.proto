@@ -1,0 +1,50 @@
+syntax = "proto3";
+
+package auth;
+
+option go_package = "autm0d3us.gRPCAuth.v1;gRPCAuthv1";
+
+service Auth {
+  rpc Register (RegisterRequest) returns (RegisterResponse);
+  rpc Login (LoginRequest) returns (LoginResponse);
+  rpc ValidateToken (ValidateTokenRequest) returns (ValidateTokenResponse);
+}
+
+message RegisterRequest {
+  string username = 1;      // Username of the user to sign up.
+  string birthday = 2;     // Birthday of the user to sign up.
+  string phone = 3;     // Phone of the user to sign up.
+  string email = 4;     // Email of the user to sign up.
+  string password = 5;      // Password of the user to sign up.
+}
+
+message RegisterResponse {
+  string token = 1;     // Token of the user to sign up.
+  int64 user_id = 2;      // ID of the user to sign up.
+  string username = 3;      // Username of the user to sign up.
+  string phone = 4;     // Phone of the user to sign up.
+  string email = 5;     // Email of the user to sign up.
+  int64 balance = 6;      // Balance of the user to sign up.
+}
+
+message LoginRequest {
+  string login = 1;     // Email or phone of the user to sign in.
+  string password = 2;      // Password of the user to sign in.
+}
+
+message LoginResponse {
+  string token = 1;     // Token of the logged in user.
+  int64 user_id = 2;      // ID of the logged in user.
+  string username = 3;      // Username of the logged in user.
+  string phone = 4;     // Phone of the logged in user.
+  string email = 5;     // Email of the logged in user.
+  int64 balance = 6;      // Balance of the logged in user.
+}
+
+message ValidateTokenRequest {
+  string token = 1;     // JWT token of the user for auth in system.
+}
+
+message ValidateTokenResponse {
+  int64 user_id = 1;      // ID of the user to auth in system
+}
