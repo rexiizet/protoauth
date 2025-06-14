@@ -46,5 +46,5 @@ message ValidateTokenRequest {
 }
 
 message ValidateTokenResponse {
-  int64 user_id = 1;      // ID of the user to auth in system.
+  int64 user_id = 1;      // ID of the user to auth in system
 }
