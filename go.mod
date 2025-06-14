@@ -1,3 +1,3 @@
-module 4203941-dp93067.twc1.net/backend/protobuf-auth
+module github.com/rexiizet/protoauth
 
 go 1.23.4
